@@ -19,7 +19,7 @@ def get_user_score(user_name: str) -> str:
             return '-1'
 
 
-def update_user_score(new_user: bool, user_name: str, score: int):
+def update_user_score(new_user: bool, user_name: str, score: int) -> ...:
     if new_user:
         with open('user_scores.txt', 'a') as file:
             file.write(f'{user_name} : {score}\n')
@@ -37,4 +37,3 @@ def update_user_score(new_user: bool, user_name: str, score: int):
 
         remove('user_scores.txt')
         rename('user_scores.tmp', 'user_scores.txt')
-

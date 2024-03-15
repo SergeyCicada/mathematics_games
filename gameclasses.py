@@ -39,7 +39,7 @@ class BinaryGame(Game):
                     if answer != base10:
                         print('Wrong answer, the correct answer is {:b}.'.format(base10))
                         break
-                except Exception as e:
+                except:
                     user_result = input('Wrong answer, input correct answer on binary: ')
             return score
 
@@ -61,14 +61,14 @@ class MathGame(Game):
                 number_list[j] = randint(1, 9)
 
             for k in range(len(symbol_list)):
-                if k > 0 and symbol_list[k-1] == '**':
+                if k > 0 and symbol_list[k - 1] == '**':
                     symbol_list[k] = operator_dict[randint(1, 3)]
                 else:
                     symbol_list[k] = operator_dict[randint(1, 4)]
 
         question_string = str(number_list[0])
         for index in range(0, 4):
-            question_string = question_string + symbol_list[index] + str(number_list[index+1])
+            question_string = question_string + symbol_list[index] + str(number_list[index + 1])
 
         result = eval(question_string)
 
@@ -85,11 +85,6 @@ class MathGame(Game):
                 if answer != result:
                     print('Wrong answer!')
                     break
-            except Exception as e:
+            except:
                 user_result = input('Please, input correct answer: ')
         return score
-
-
-
-
-

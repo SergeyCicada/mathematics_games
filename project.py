@@ -2,16 +2,16 @@ from gametasks import print_instructions, update_user_score, get_user_score
 from gameclasses import BinaryGame, MathGame
 
 math_instructions = '''
-В этой игре вам предлагается решить простую арифметичкую задачу. 
-За каждый правильный ответ вам начисляется одно очко.
-За ошибочные ответы очки не вычитаются.
+In this game, you are offered to solve a simple arithmetic task.
+You earn one point for each correct answer.
+Points are not deducted for incorrect answers.
 '''
 
 binary_instructions = '''
-В этой игры вы получаете десятичное число.
-Ваша задача = преобразовать его в двоичную систему счисления. 
-За каждый правильный ответ вам начисляется одно очко.
-За ошибочные ответы очки не вычитаются.
+In this game, you are given a decimal number.
+Your task is to convert it into binary number system.
+You earn one point for each correct answer.
+Points are not deducted for incorrect answers.
  '''
 
 bg = BinaryGame
@@ -48,11 +48,13 @@ while user_choice != '-1':
     if game == '1':
         mg.no_of_questions = num
         print_instructions(math_instructions)
-        score = int(score) + mg_instance.generate_questions()
+        score = int(score) + mg_instance.generate_questions
     if game == '2':
         bg.no_of_questions = num
         print_instructions(binary_instructions)
         score += bg_instance.generate_questions()
     print(f'Your current score is {score}!')
     user_choice = input(f'Press enter to continue or -1 to end: ')
+
+update_user_score(new_user, user_name, str(score))
 
